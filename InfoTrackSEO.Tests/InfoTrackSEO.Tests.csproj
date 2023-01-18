@@ -65,7 +65,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Providers\" />
+		<Folder Include="Providers\" />
 	</ItemGroup>
 
 </Project>

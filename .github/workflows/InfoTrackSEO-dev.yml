@@ -1,4 +1,4 @@
-name: InfoTrackSEO-dev
+name: infotrackseo-dev
 
 on:
   push:
@@ -14,8 +14,8 @@ env:
   CONFIGURATION: Dev
   DOTNET_CORE_VERSION: 6.0.x  
   DOCKER_FILE_PATH: InfoTrackSEO.Api/Dockerfile
-  IMAGE_NAME: InfoTrackSEO-dev
-  PROJECT_ID: InfoTrackSEO-dev
+  IMAGE_NAME: infotrackseo-dev
+  PROJECT_ID: infotrackseo-dev
     
 jobs:
   build-and-test:

@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace InfoTrackSEO.Models;
+﻿namespace InfoTrackSEO.Models;
 
 public class TrackedSearchData
 {
     public int Id { get; set; }
 
     public Guid UUID { get; set; } = Guid.NewGuid();
-    
+
     public int UrlId { get; set; }
 
     public TrackedUrls Url { get; set; }

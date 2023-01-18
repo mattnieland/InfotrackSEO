@@ -1,6 +1,5 @@
 ﻿using System.Linq.Expressions;
 using InfoTrackSEO.Contexts;
-using InfoTrackSEO.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace InfoTrackSEO.Api.Repositories;
