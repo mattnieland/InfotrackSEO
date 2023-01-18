@@ -7,8 +7,8 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 -->
-[![yamdb-dev](https://github.com/mattnieland/YAMDB/actions/workflows/yamdb-dev.yml/badge.svg)](https://github.com/mattnieland/YAMDB/actions/workflows/yamdb-dev.yml)
-[![yamdb-prod](https://github.com/mattnieland/YAMDB/actions/workflows/yamdb-prod.yml/badge.svg)](https://github.com/mattnieland/YAMDB/actions/workflows/yamdb-prod.yml)
+[![InfoTrackSEO-dev](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-dev.yml/badge.svg)](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-dev.yml)
+[![InfoTrackSEO-prod](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-prod.yml/badge.svg)](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-prod.yml)
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -16,21 +16,21 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/mattnieland/YAMDB">
+  <a href="https://github.com/mattnieland/InfoTrackSEO">
     <img src="images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">YAMDB (Yet Another Movie Db)</h3>
+  <h3 align="center">InfoTrackSEO (Yet Another Movie Db)</h3>
 
   <p align="center">
-    <a href="https://github.com/mattnieland/YAMDB"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/mattnieland/InfoTrackSEO"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/mattnieland/YAMDB">View Demo</a>
+    <a href="https://github.com/mattnieland/InfoTrackSEO">View Demo</a>
     ·
-    <a href="https://github.com/mattnieland/YAMDB/issues">Report Bug</a>
+    <a href="https://github.com/mattnieland/InfoTrackSEO/issues">Report Bug</a>
     ·
-    <a href="https://github.com/mattnieland/YAMDB/issues">Request Feature</a>
+    <a href="https://github.com/mattnieland/InfoTrackSEO/issues">Request Feature</a>
   </p>
 </div>
 
@@ -129,7 +129,7 @@ To start, apply the following tokens to your Doppler configs:
 
 To access the doppler secrets, get a Doppler token and add a : to it (Doppler uses Basic Auth).  Refer to this page for how to authenticate to the Doppler API: https://docs.doppler.com/reference/api.
 
-Finally, base64 encode (https://www.base64encode.org) the string and run the following command in the YAMDB.csproj folder:
+Finally, base64 encode (https://www.base64encode.org) the string and run the following command in the InfoTrackSEO.csproj folder:
 
 * Set Doppler Token
   ```sh
@@ -177,7 +177,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 * Matt Nieland: matt.nieland@gmail.com
-* Project Link: [https://github.com/mattnieland/YAMDB](https://github.com/mattnieland/YAMDB)
+* Project Link: [https://github.com/mattnieland/InfoTrackSEO](https://github.com/mattnieland/InfoTrackSEO)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -195,15 +195,15 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/mattnieland/YAMDB/graphs/contributors
+[contributors-url]: https://github.com/mattnieland/InfoTrackSEO/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/mattnieland/YAMDB/network/members
+[forks-url]: https://github.com/mattnieland/InfoTrackSEO/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/mattnieland/YAMDB/stargazers
+[stars-url]: https://github.com/mattnieland/InfoTrackSEO/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/mattnieland/YAMDB/issues
+[issues-url]: https://github.com/mattnieland/InfoTrackSEO/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/mattnieland/YAMDB/blob/main/LICENSE.txt
+[license-url]: https://github.com/mattnieland/InfoTrackSEO/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/mattnieland
 [product-screenshot]: images/screenshot.png

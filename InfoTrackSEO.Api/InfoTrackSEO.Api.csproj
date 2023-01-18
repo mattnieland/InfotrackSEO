@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<Configurations>Local;Dev;Prod</Configurations>
+		<UserSecretsId>a1245430-8c27-4fa0-8df4-7eeae33fcbe8</UserSecretsId>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|AnyCPU'">
+		<NoWarn>1701;1702;CA2254</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Local|AnyCPU'">
+		<NoWarn>1701;1702;CA2254</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Prod|AnyCPU'">
+		<NoWarn>1701;1702;CA2254</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="appsettings.Dev.json" />
+		<Content Remove="appsettings.json" />
+		<Content Remove="appsettings.Local.json" />
+		<Content Remove="appsettings.Prod.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Content\css\swagger-custom.css" />
+		<None Remove="Content\logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Content\css\swagger-custom.css">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Content\images\logo.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="appsettings.Dev.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>appsettings.json</DependentUpon>
+		</None>
+		<None Include="appsettings.json">
+			<TransformOnBuild>true</TransformOnBuild>
+		</None>
+		<None Include="appsettings.Local.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>appsettings.json</DependentUpon>
+		</None>
+		<None Include="appsettings.Prod.json">
+			<IsTransformFile>true</IsTransformFile>
+			<DependentUpon>appsettings.json</DependentUpon>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.0.4" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="Microsoft.VisualStudio.SlowCheetah" Version="4.0.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+		<PackageReference Include="Sentry.AspNetCore" Version="3.26.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+		<PackageReference Include="Serilog.Sinks.AzureTableStorage" Version="5.0.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+		<PackageReference Include="System.Net.Http" Version="4.3.4" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\InfoTrackSEO\InfoTrackSEO.csproj" />
+	</ItemGroup>
+
+</Project>

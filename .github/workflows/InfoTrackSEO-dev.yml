@@ -1,0 +1,90 @@
+name: InfoTrackSEO-dev
+
+on:
+  push:
+    branches:
+    - dev
+env:  
+  SENTRY_ORG: mattnieland
+  SENTRY_PROJECT: infotrack-seo
+  SENTRY_ENVIRONMENT: Dev
+  API_PROJECT_PATH: InfoTrackSEO.Api/InfoTrackSEO.Api.csproj
+  TEST_PROJECT_PATH: InfoTrackSEO.Tests/InfoTrackSEO.Tests.csproj
+  CORE_PROJECT_PATH: InfoTrackSEO
+  CONFIGURATION: Dev
+  DOTNET_CORE_VERSION: 6.0.x  
+  DOCKER_FILE_PATH: InfoTrackSEO.Api/Dockerfile
+  IMAGE_NAME: InfoTrackSEO-dev
+  PROJECT_ID: InfoTrackSEO-dev
+    
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest    
+        
+    steps: 
+    - name: Declare some variables
+      id: vars
+      shell: bash
+      run: |            
+        echo "::set-output name=sha::${GITHUB_SHA}"
+        
+    - name: Checkout            
+      uses: actions/checkout@v3
+
+    - name: Create Sentry release
+      uses: getsentry/action-release@v1
+      env:
+        SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+        SENTRY_ORG: ${{ env.SENTRY_ORG }}
+        SENTRY_PROJECT: ${{ env.SENTRY_PROJECT }}
+      with:
+        environment: ${{ env.SENTRY_ENVIRONMENT }}
+        version: ${{ steps.vars.outputs.sha }}
+        ignore_empty: true
+        ignore_missing: true
+      
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+        
+    - name: Restore
+      run: dotnet restore
+      
+    - name: Build & Publish
+      run: dotnet publish ${{ env.API_PROJECT_PATH }} --configuration ${{ env.CONFIGURATION }} --no-restore
+
+    - name: Set Secret Token
+      run: dotnet user-secrets set "DOPPLER_TOKEN" "${{ secrets.DOPPLER_DEV_TOKEN }}" --project "${{ env.CORE_PROJECT_PATH }}"
+      
+    - name: Test
+      run: dotnet test ${{ env.TEST_PROJECT_PATH }} --no-restore --verbosity normal
+      
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+    
+    - name: Setup Google Cloud
+      uses: google-github-actions/setup-gcloud@v1
+      with:        
+        project_id: ${{ env.PROJECT_ID }}
+    
+    - name: Configure Docker Client
+      run: |-
+        gcloud auth configure-docker --quiet
+        gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+        
+    - name: Build & Push Image to Container Registry (GCR)      
+      run: |-
+        docker build -f ${{ env.DOCKER_FILE_PATH }} -t gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest -t gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+        docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest
+        docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+    #- name: Build & Push Image to Artifact Registry      
+    #  run: |-
+    #    docker build -f ${{ env.DOCKER_FILE_PATH }} -t gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:latest -t gcr.io/${{ env.PROJECT_ID }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .        
+    #    docker push us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/images/${{ env.IMAGE_NAME }}:latest
+    #    docker push us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/images/${{ env.IMAGE_NAME }}:${{ github.sha }}
