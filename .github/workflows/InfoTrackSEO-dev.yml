@@ -15,7 +15,7 @@ env:
   DOTNET_CORE_VERSION: 6.0.x  
   DOCKER_FILE_PATH: InfoTrackSEO.Api/Dockerfile
   IMAGE_NAME: infotrackseo-dev
-  PROJECT_ID: infotrackseo-dev
+  PROJECT_ID: infotrackseo-dev-375118
     
 jobs:
   build-and-test:
