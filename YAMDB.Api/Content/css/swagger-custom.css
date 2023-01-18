@@ -1,0 +1,35 @@
+﻿body { background: #EEFCFF; }
+
+.swagger-ui .scheme-container {
+    background: #EEFCFF;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+.swagger-ui .info .title small.version-stamp { background-color: #032541; }
+
+.swagger-ui .info .title small { background: #B3F0FB; }
+
+.swagger-ui .btn.authorize {
+    border-color: #032541;
+    color: #032541;
+}
+
+.swagger-ui .opblock.opblock-delete { background: #FFE8E5; }
+
+.swagger-ui .btn.authorize svg { fill: #032541; }
+
+.swagger-ui .topbar .download-url-wrapper .select-label select { border: 2px solid #032541; }
+
+img[alt="Swagger UI"] {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    content: url('/Content/images/logo.png');
+    display: block;
+    height: 80px;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.swagger-ui .topbar { background-color: #032541; }
