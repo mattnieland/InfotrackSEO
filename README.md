@@ -8,7 +8,6 @@
 [![Issues][issues-shield]][issues-url]
 -->
 [![InfoTrackSEO-dev](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-dev.yml/badge.svg)](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-dev.yml)
-[![InfoTrackSEO-prod](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-prod.yml/badge.svg)](https://github.com/mattnieland/InfoTrackSEO/actions/workflows/InfoTrackSEO-prod.yml)
 
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -20,7 +19,7 @@
     <img src="images/logo.png" alt="Logo" width="120" height="120">
   </a>
 
-  <h3 align="center">InfoTrackSEO (Yet Another Movie Db)</h3>
+  <h3 align="center">InfoTrackSEO</h3>
 
   <p align="center">
     <a href="https://github.com/mattnieland/InfoTrackSEO"><strong>Explore the docs »</strong></a>
@@ -66,18 +65,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-* /swagger
 ![Product Name Screen Shot][product-screenshot]
 
-* /graphql
-![Product Name Screen Shot2][product-screenshot2]
-
-I created this project for a coding assessment for a job.  I looped
-so many concepts into this project that I decided to make it
-a public template for my future API projects.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
@@ -92,10 +82,8 @@ This API was built with the following tools:
 * [![Swagger][Swagger]][Swagger-url]
 * [![Sentry][Sentry]][Sentry-url]
 * [![Serilog][Serilog]][Serilog-url]
-* [![HotChocolate][HotChocolate]][HotChocolate-url]
 * [![NuGet][NuGet]][NuGet-url]
 * [![ReSharper][ReSharper]][ReSharper-url]
-* [![Canva][Canva]][Canva-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -105,14 +93,13 @@ This API was built with the following tools:
 ## Getting Started
 
 The default template uses in memory database and seeds
-its data from TheMovieDb.  You can enable/disable any of the "extras" like Doppler, Auth0, Sentry, Serilog or HotChocolate.  If you'd like to use all of these,
+its data automatically.  You can enable/disable any of the "extras" like Doppler, Auth0, Sentry, or Serilog.  If you'd like to use all of these,
 read on.
 
 ### Prerequisites
 You need the following pre-requisites to run this project:
-* A TheMovieDb API key (refer to this documentation: https://developers.themoviedb.org/3/getting-started/introduction)
 * A Doppler account with a project (use local/dev/prod config environments)
-* An Auth0 account (create an API & the write:movies & write:actors scopes using this guide: https://auth0.com/docs/quickstart/backend/aspnet-core-webapi/interactive)
+* An Auth0 account (create an API & the read:urls, read:terms, read:data, write:urls, and write:terms scopes using this guide: https://auth0.com/docs/quickstart/backend/aspnet-core-webapi/interactive)
 * A Sentry account (use this guide to get a DSN https://docs.sentry.io/platforms/dotnet/guides/aspnetcore)
 * Logging is provided by Serilog and dumps to Azure Table Storage (If you'd like a different sink, refer to this list: https://github.com/serilog/serilog/wiki/Provided-Sinks)
 
@@ -120,10 +107,10 @@ You need the following pre-requisites to run this project:
 
 To start, apply the following tokens to your Doppler configs:
   ```sh
-  THEMOVIEDB_API_KEY = Your TheMovieDb API key
   AUTH0_AUTHORITY = Your Auth0 Domain
   AUTH0_AUDIENCE = Your audience identifier (can be the anything)
   SENTRY_DSN = Your Sentry DSN from above
+  DB_CONNECTION_STRING = Database connection (for dev & prod instances)
   LOGGING_CONNECTION_STRING = Your Azure Table Storage Connection String (If you don't have this key, logging will be skipped in setup)  
   ```
 
@@ -136,12 +123,12 @@ Finally, base64 encode (https://www.base64encode.org) the string and run the fol
   dotnet user-secrets set "DOPPLER_TOKEN" "YOUR_DOPPLER_TOKEN_HERE"
   ```
 
-* Alternatively, you may use the appsettings.json or Debug/Release transforms to set this value
+* Alternatively, you may use the appsettings.json or Dev/Prod transforms to set this value
 
 That's it!  You're ready to compile and run via Visual Studio or VS Code.
 
 ### Authentication
-Authentication is done via Auth0.  Create/Update/Delete endpoints require write:movies & write:actors scopes
+Authentication is done via Auth0.  Create/Update/Delete endpoints require read:urls, read:terms, read:data, write:urls, and write:terms scopes
 to work.  To get a Bearer token, use this guide (https://auth0.com/docs/secure/tokens/access-tokens/get-access-tokens)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -207,7 +194,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/mattnieland
 [product-screenshot]: images/screenshot.png
-[product-screenshot2]: images/screenshot2.png
 [token]: images/token.png
 [.NET]: https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=.net
 [.NET-url]: https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0
@@ -225,11 +211,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [Sentry-url]: https://sentry.io
 [Serilog]: https://img.shields.io/badge/Serilog-000000?style=for-the-badge
 [Serilog-url]: https://serilog.net
-[HotChocolate]: https://img.shields.io/badge/HotChocolate-000000?style=for-the-badge
-[HotChocolate-url]: https://chillicream.com/docs/hotchocolate
 [NuGet]: https://img.shields.io/badge/NuGet-004880?style=for-the-badge&logo=NuGet
 [NuGet-url]: https://www.nuget.org
 [ReSharper]: https://img.shields.io/badge/ReSharper-000000?style=for-the-badge&logo=ReSharper
 [ReSharper-url]: https://www.jetbrains.com/resharper
-[Canva]: https://img.shields.io/badge/Canva-000000?style=for-the-badge&logo=Canva
-[Canva-url]: https://www.canva.com
