@@ -16,7 +16,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/mattnieland/InfoTrackSEO">
-    <img src="images/logo.png" alt="Logo" width="120" height="120">
+    <img src="images/logo.png" alt="Logo" width="120">
   </a>
 
   <h3 align="center">InfoTrackSEO</h3>
