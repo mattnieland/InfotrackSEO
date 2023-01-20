@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InfoTrackSEO.Models;
+﻿using InfoTrackSEO.Models;
 
-namespace InfoTrackSEO.Providers
+namespace InfoTrackSEO.Providers;
+
+public interface ISearchProvider
 {
-    public interface ISearchProvider
-    {
-        Task<List<SearchResults>> GetSearchResults(string searchQuery, int limit = 100);
-
-    }
+    string GetSource();
+    Task<List<SearchResults>> GetSearchResults(string searchQuery, int limit = 100);
 }

@@ -13,7 +13,7 @@ namespace InfoTrackSEO.Providers;
 public class SecretProviders
 {
     private static readonly string baseUrl = "https://api.doppler.com/v3";
-    private static readonly string project = "infotrack-seo";
+    private static readonly string project = "infotrack";
     private static readonly string config;
     private static readonly RestClient client = new(baseUrl);
 

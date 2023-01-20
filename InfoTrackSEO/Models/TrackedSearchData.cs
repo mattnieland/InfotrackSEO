@@ -1,7 +1,11 @@
-﻿namespace InfoTrackSEO.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace InfoTrackSEO.Models;
 
 public class TrackedSearchData
 {
+    [Key]
     public int Id { get; set; }
 
     public Guid UUID { get; set; } = Guid.NewGuid();
@@ -19,6 +23,8 @@ public class TrackedSearchData
     // So I'll just split the csv string
     // in the front end for now
     public string? Ranks { get; set; }
+
+    public string Source { get; set; }
 
     public int CaptureSize { get; set; } = 100;
 

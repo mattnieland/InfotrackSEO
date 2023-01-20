@@ -174,10 +174,6 @@ public class TermsController : ControllerBase
             {
                 return BadRequest();
             }
-            else if (string.IsNullOrEmpty(term.Source))
-            {
-                return BadRequest();
-            }
 
 
             // check that the object exists
@@ -225,10 +221,6 @@ public class TermsController : ControllerBase
         {
             // check that the term is valid
             if (string.IsNullOrEmpty(term.Term))
-            {
-                return BadRequest();
-            }
-            else if (string.IsNullOrEmpty(term.Source))
             {
                 return BadRequest();
             }
